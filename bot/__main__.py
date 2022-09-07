@@ -66,16 +66,16 @@ def getHerokuDetails(h_api_key, h_app_name):
         quota_remain = account_quota - quota_used
         if EMOJI_THEME is True:
             abc += f'<b></b>\n'
-            abc += f'<b>╭─《🌐 HEROKU STATS 🌐》</b>\n'
-            abc += f"<b>├ 💪🏻 FULL</b>: {get_readable_time(account_quota)}\n"
-            abc += f"<b>├ 👎🏻 USED</b>: {get_readable_time(quota_used)}\n"
-            abc += f"<b>├ 👍🏻 FREE</b>: {get_readable_time(quota_remain)}\n"
+            abc += f'<b> HEROKU STATS </b>\n'
+            abc += f"<b>🏻 FULL</b>: {get_readable_time(account_quota)}\n"
+            abc += f"<b>🏻 USED</b>: {get_readable_time(quota_used)}\n"
+            abc += f"<b>🏻 FREE</b>: {get_readable_time(quota_remain)}\n"
         else:
             abc += f'<b></b>\n'
-            abc += f'<b>╭─《 HEROKU STATS 》</b>\n'
-            abc += f"<b>├ FULL</b>: {get_readable_time(account_quota)}\n"
-            abc += f"<b>├ USED</b>: {get_readable_time(quota_used)}\n"
-            abc += f"<b>├ FREE</b>: {get_readable_time(quota_remain)}\n"
+            abc += f'<b> HEROKU STATS </b>\n'
+            abc += f"<b> FULL</b>: {get_readable_time(account_quota)}\n"
+            abc += f"<b> USED</b>: {get_readable_time(quota_used)}\n"
+            abc += f"<b> FREE</b>: {get_readable_time(quota_remain)}\n"
         # App Quota
         AppQuotaUsed = 0
         OtherAppsUsage = 0
@@ -96,13 +96,13 @@ def getHerokuDetails(h_api_key, h_app_name):
                     pass
         LOGGER.info(f"This App: {str(app.name)}")
         if EMOJI_THEME is True:
-            abc += f"<b>├ 🎃 APP USAGE:</b> {get_readable_time(AppQuotaUsed)}\n"
-            abc += f"<b>├ 🗑️ OTHER APP:</b> {get_readable_time(OtherAppsUsage)}\n"
-            abc += f'<b>╰─《 ☣️ {CREDIT_NAME} ☣️ 》</b>'
+            abc += f"<b> APP USAGE:</b> {get_readable_time(AppQuotaUsed)}\n"
+            abc += f"<b> OTHER APP:</b> {get_readable_time(OtherAppsUsage)}\n"
+            abc += f'<b> {CREDIT_NAME} </b>'
         else:
-            abc += f"<b>├ APP USAGE:</b> {get_readable_time(AppQuotaUsed)}\n"
-            abc += f"<b>├ OTHER APP:</b> {get_readable_time(OtherAppsUsage)}\n"
-            abc += f'<b>╰─《 {CREDIT_NAME} 》</b>'
+            abc += f"<b> APP USAGE:</b> {get_readable_time(AppQuotaUsed)}\n"
+            abc += f"<b> OTHER APP:</b> {get_readable_time(OtherAppsUsage)}\n"
+            abc += f'<b> {CREDIT_NAME} </b>'
         return abc
     except Exception as g:
         LOGGER.error(g)
@@ -157,28 +157,28 @@ def stats(update, context):
     mem_a = get_readable_file_size(memory.available)
     mem_u = get_readable_file_size(memory.used)
     if EMOJI_THEME is True:
-            stats = f'<b>╭─《🌐 BOT STATISTICS 🌐》</b>\n' \
-                    f'<b>├ 🛠 Updated On: </b>{last_commit}\n'\
-                    f'<b>├ ⌛ Uptime: </b>{currentTime}\n'\
-                    f'<b>├ 🟢 OS Uptime: </b>{osUptime}\n'\
-                    f'<b>├ 🖥️ CPU:</b> [{progress_bar(cpuUsage)}] {cpuUsage}%\n'\
-                    f'<b>├ 🎮 RAM:</b> [{progress_bar(mem_p)}] {mem_p}%\n'\
-                    f'<b>├ 💾 Disk:</b> [{progress_bar(disk)}] {disk}%\n'\
-                    f'<b>├ 💿 Disk Free:</b> {free}\n'\
-                    f'<b>├ 🔺 Upload Data:</b> {sent}\n'\
-                    f'<b>╰ 🔻 Download Data:</b> {recv}\n\n'
+            stats = f'<b> BOT STATISTICS </b>\n' \
+                    f'<b> Updated On: </b>{last_commit}\n'\
+                    f'<b> Uptime: </b>{currentTime}\n'\
+                    f'<b> OS Uptime: </b>{osUptime}\n'\
+                    f'<b> CPU:</b> [{progress_bar(cpuUsage)}] {cpuUsage}%\n'\
+                    f'<b> RAM:</b> [{progress_bar(mem_p)}] {mem_p}%\n'\
+                    f'<b> Disk:</b> [{progress_bar(disk)}] {disk}%\n'\
+                    f'<b> Disk Free:</b> {free}\n'\
+                    f'<b> Upload Data:</b> {sent}\n'\
+                    f'<b> Download Data:</b> {recv}\n\n'
 
     else:
-            stats = f'<b>╭─《 BOT STATISTICS 》</b>\n' \
-                    f'<b>├  Updated On: </b>{last_commit}\n'\
-                    f'<b>├  Uptime: </b>{currentTime}\n'\
-                    f'<b>├  OS Uptime: </b>{osUptime}\n'\
-                    f'<b>├  CPU usage:</b> [{progress_bar(cpuUsage)}] {cpuUsage}%\n'\
-                    f'<b>├  RAM:</b> [{progress_bar(mem_p)}] {mem_p}%\n'\
-                    f'<b>├  Disk:</b> [{progress_bar(disk)}] {disk}%\n'\
-                    f'<b>├  Disk Free:</b> {free}\n'\
-                    f'<b>├  Upload Data:</b> {sent}\n'\
-                    f'<b>╰  Download Data:</b> {recv}\n\n'
+            stats = f'<b> BOT STATISTICS </b>\n' \
+                    f'<b>  Updated On: </b>{last_commit}\n'\
+                    f'<b>  Uptime: </b>{currentTime}\n'\
+                    f'<b>  OS Uptime: </b>{osUptime}\n'\
+                    f'<b>  CPU usage:</b> [{progress_bar(cpuUsage)}] {cpuUsage}%\n'\
+                    f'<b>  RAM:</b> [{progress_bar(mem_p)}] {mem_p}%\n'\
+                    f'<b>  Disk:</b> [{progress_bar(disk)}] {disk}%\n'\
+                    f'<b>  Disk Free:</b> {free}\n'\
+                    f'<b>  Upload Data:</b> {sent}\n'\
+                    f'<b>  Download Data:</b> {recv}\n\n'
 
 
 
@@ -214,23 +214,23 @@ def stats(update, context):
 
 
         if EMOJI_THEME is True: 
-            stats += f'<b>╭─《 ⚠️ BOT LIMITS ⚠️ 》</b>\n'\
-                     f'<b>├ 🧲 Torrent/Direct: </b>{torrent_direct}\n'\
-                     f'<b>├ 🔐 Zip/Unzip: </b>{zip_unzip}\n'\
-                     f'<b>├ 🔷 Leech: </b>{leech_limit}\n'\
-                     f'<b>├ ♻️ Clone: </b>{clone_limit}\n'\
-                     f'<b>├ 🔰 Mega: </b>{mega_limit}\n'\
-                     f'<b>├ 💣 Total Tasks: </b>{total_task}\n'\
-                     f'<b>╰ 🔫 User Tasks: </b>{user_task}\n\n'
+            stats += f'<b> BOT LIMITS </b>\n'\
+                     f'<b> Torrent/Direct: </b>{torrent_direct}\n'\
+                     f'<b> Zip/Unzip: </b>{zip_unzip}\n'\
+                     f'<b> Leech: </b>{leech_limit}\n'\
+                     f'<b> Clone: </b>{clone_limit}\n'\
+                     f'<b> Mega: </b>{mega_limit}\n'\
+                     f'<b> Total Tasks: </b>{total_task}\n'\
+                     f'<b> User Tasks: </b>{user_task}\n\n'
         else: 
-            stats += f'<b>╭─《  BOT LIMITS  》</b>\n'\
-                     f'<b>├  Torrent/Direct: </b>{torrent_direct}\n'\
-                     f'<b>├  Zip/Unzip: </b>{zip_unzip}\n'\
-                     f'<b>├  Leech: </b>{leech_limit}\n'\
-                     f'<b>├  Clone: </b>{clone_limit}\n'\
-                     f'<b>├  Mega: </b>{mega_limit}\n'\
-                     f'<b>├  Total Tasks: </b>{total_task}\n'\
-                     f'<b>╰  User Tasks: </b>{user_task}\n\n'
+            stats += f'<b>  BOT LIMITS </b>\n'\
+                     f'<b>  Torrent/Direct: </b>{torrent_direct}\n'\
+                     f'<b>  Zip/Unzip: </b>{zip_unzip}\n'\
+                     f'<b>  Leech: </b>{leech_limit}\n'\
+                     f'<b>  Clone: </b>{clone_limit}\n'\
+                     f'<b>  Mega: </b>{mega_limit}\n'\
+                     f'<b>  Total Tasks: </b>{total_task}\n'\
+                     f'<b>  User Tasks: </b>{user_task}\n\n'
 
                 
 
@@ -244,8 +244,8 @@ def stats(update, context):
 def start(update, context):
     buttons = ButtonMaker()
     if EMOJI_THEME is True:
-        buttons.buildbutton(f"😎 {START_BTN1_NAME}", f"{START_BTN1_URL}")
-        buttons.buildbutton(f"🔥 {START_BTN2_NAME}", f"{START_BTN2_URL}")
+        buttons.buildbutton(f" {START_BTN1_NAME}", f"{START_BTN1_URL}")
+        buttons.buildbutton(f" {START_BTN2_NAME}", f"{START_BTN2_URL}")
     else:
         buttons.buildbutton(f"{START_BTN1_NAME}", f"{START_BTN1_URL}")
         buttons.buildbutton(f"{START_BTN2_NAME}", f"{START_BTN2_URL}")
@@ -315,9 +315,9 @@ def restart(update, context):
 def ping(update, context):
     if EMOJI_THEME is True:
         start_time = int(round(time() * 1000))
-        reply = sendMessage("Starting_Ping ⛔", context.bot, update.message)
+        reply = sendMessage("Starting_Ping ", context.bot, update.message)
         end_time = int(round(time() * 1000))
-        editMessage(f'{end_time - start_time} ms 🔥', reply)
+        editMessage(f'{end_time - start_time} ms ', reply)
     else:
         start_time = int(round(time() * 1000))
         reply = sendMessage("Starting_Ping ", context.bot, update.message)
@@ -441,8 +441,8 @@ help_admin = telegraph.create_page(
 def bot_help(update, context):
     button = ButtonMaker()
     if EMOJI_THEME is True:
-        button.buildbutton("👤 User", f"https://graph.org/{help_user}")
-        button.buildbutton("🛡️ Admin", f"https://graph.org/{help_admin}")
+        button.buildbutton(" User", f"https://graph.org/{help_user}")
+        button.buildbutton(" Admin", f"https://graph.org/{help_admin}")
     else:
         button.buildbutton("User", f"https://graph.org/{help_user}")
         button.buildbutton("Admin", f"https://graph.org/{help_admin}")
